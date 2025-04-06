@@ -1,0 +1,71 @@
+1) b)
+    problema g(n: Z) -> Z {
+        requiere: {(n == 8) || (n == 16) || (n == 131)}
+        asegura : {(n == 8 -> res = 16) || (n == 16 -> res = 4) || (n == 131 -> res = 1)}        
+    }
+
+
+2)
+    a)
+    problema absoluto (n: Z) -> Z {
+        requiere : {True}
+        asegura : {res >= 0 -> res = n || res < 0 -> res = -n || res es el resultado de aplicar la funcion abs a n} 
+    }
+
+    b)
+    problema maximoAbsoluto (x:Z, y: Z) -> Z {
+        requie: {True}
+        asegura : {absoluto(x) > absoluto(y) -> res =  x || absoluto(x) < absoluto(y) -> res = y}
+    }
+
+    c)
+    problema maximo3 (a:Z, b:Z, c:Z) -> Z {
+        requiere: {True}
+        asegura : {res = el mayor de a,b,c }
+    }
+
+
+    d)
+    problema algunoEsCero(x: R, y:R) -> Bool {
+        requiere : {True}
+        asegura : {res = True <==> x == 0 || y == 0, sino res = False}
+    }
+
+
+    e)
+    problema ambosSonCeros (x: R, y: R) -> Bool {
+        requiere : {True}
+        asegura : {res = True <==> x == 0 ^ y == 0, sino res = False}
+    }
+
+
+    f)
+    problema enMismoIntervalo (x:R, y:R) -> Bool {
+        requiere : {True}
+        asegura : {res = True <==> x pertenece al mismo intervalo que y}
+    }
+
+
+    g) problema sumaDistintos (a: Z, b: Z, c: Z) -> Z {
+        requiere : {True}
+        asegura : {(a!= b ^ a != c  ^  b != c) -> res = a+b+c}
+        asegura : {(a!= b ^ a != c  ^  b == c) -> res = a+b}
+        asegura : {(a == c ^ a != b) -> res = a + b}
+        asegura : {(a == b ^ a != c) -> res = a + c}
+        asegura : {(a == b ^ a == c ) -> res = a + b}
+    }
+
+
+    h) problema esMultiploDe (x: Z, y: Z) -> Bool {
+        requiere : {y != 0}
+        asegura : {res = True <==> x | y (x es divisible por y)}
+    }
+
+
+    i) problema digitoUnidades(x: Z) -> Z {
+        requiere : {x != 0}
+        asegura : {res > absoluto 9 -> res = primerDigitoDeX }
+        asegura : {res <= absoluto 9 -> res = x}
+    }
+
+    

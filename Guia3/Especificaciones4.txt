@@ -1,0 +1,37 @@
+a) problema productoInterno((a:R, b:R) (c:R, d:R)) -> (R, R) {
+    requiere: {True}
+    asegura: {res = a*c + b*d}
+}
+
+b) problema esParMenor ((a:R, b:R) (c:R, d:R)) -> (Bool, Bool) {
+    requiere: {True}
+    asegura: {res = (e, f) / e = True <==> a < c && f = True <==> b < d}
+}
+
+
+c) problema distancia ((a:R, b:R) (c:R, d:R)) -> R {
+    requiere: {True}
+    asegura: {res = longitud(c-a, d-b)}
+}
+problema longitud (x:R, y:R ) -> R { 
+    requiere: {True}
+    asegura: {res = (x^2 + y^2)^(1/2)}
+}
+
+
+d) problema sumaTerna( (a:R, b:R, c:R) ) -> R {
+    requiere: {True}
+    asegura: {res = a+b+c}
+}
+
+
+e) problema sumarSoloMultiplos ((a:Z, b:Z, c:Z) d:Z ) -> R {
+    requiere: {d > 0}
+    asegura : {res =  a la suma de los multiplos de d}
+}
+
+
+f) problema posPrimerPar ((a:Z, b:Z, c:Z) index: Z) -> R {
+    requiere: {index == 0}
+    asegura : {res = posicion del primer par encontrado}
+}
