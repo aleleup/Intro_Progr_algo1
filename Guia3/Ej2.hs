@@ -29,9 +29,13 @@ k n = g (f n)
 -- ⋆ Especificar e implementar las siguientes funciones, incluyendo su signatura:
 
 -- a) absoluto: calcula el valor absoluto de un numero entero.
-absoluto :: Integer -> Integer
+-- absoluto :: Integer -> Integer
 absoluto n | n < 0 = -n
            | otherwise = n
+
+-- Para que funcione la ultima funcion
+
+
 
 -- b) maximoAbsoluto: devuelve el maximo entre el valor absoluto de dos numeros enteros.
 
@@ -110,14 +114,25 @@ esMultiploDe x y | (y /= 0) &&  (mod x y) == 0 = True
 
 -- i) digitoUnidades: dado un n´umero entero, extrae su d´ıgito de las unidades.
 
-digitoUnidades :: Integer -> Integer -> Integer
--- buscaPrimerDigito :: Integer -> Integer
+-- digitoUnidades :: Integer -> Integer -> Integer
 
-
-digitoUnidades x counter | absx > 9 && counter == mod absx (absx - counter) = counter
-                         | absx < 9  = absx
+digitoUnidades x counter | absx < 9  = absx
+                         | absx > 9 && mod (absx - counter) 10 == 0 = counter
                          | otherwise = digitoUnidades x (counter + 1)
 
-                 where absx = absoluto x
+                 where absx = absoluto x 
 
--- digitoDecenas preguntar 
+
+-- j)
+
+-- digitoDecenas :: Float -> Float -> Float
+-- sacarUnidades :: Integer -> Integer
+sacarUnidades x  = x - digitoUnidades x 0
+
+
+digitoDecenas x counter | absx < 9 = 0
+                        | absx < 99 =  absx  / 10
+                        | absx > 99 && mod (absx - counter) 100 == 0 = counter
+                        | otherwise = digitoDecenas x (counter + 10)
+
+                where absx = sacarUnidades (absoluto x)  
