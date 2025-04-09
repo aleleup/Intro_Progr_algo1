@@ -1,0 +1,42 @@
+Ejercicio 9. A partir de las siguientes implementaciones en Haskell, describir en lenguaje natural 
+qu´e hacen y especificarlas.
+
+a) f1 :: Float -> Float
+f1 n | n == 0 = 1
+| otherwise = 0
+ -- Recibe un numero n y si n = 0 entonces devuelve 1, caso contrario devuelve 0
+
+problema f1 (x: R) : R {
+    requiere: {True}
+    asegura: {(res = 1 <--> x == 0) && (res = 0 <--> x != 0) }
+}
+
+
+
+c) f3 :: Float -> Float
+f3 n | n <= 9 = 7
+| n >= 3 = 5
+
+
+
+ -- Recibe un numero n y si n <= 9 entonces devuelve 7, caso contrario no devuelve nada
+
+problema f3 (x: R) : Z {
+    requiere: {True}
+    asegura: {(res = 7 <--> x <= 9)}
+}
+
+
+
+
+
+e) f5 :: ( Float , Float ) -> Float
+f5 (x , y ) = ( x + y )/2
+
+-- Recibe una dupla de Reales y devuelve "el promedio" de t[0] y t[1]
+
+
+problema f3 (t:(R, R)) : R {
+    requiere: {True}
+    asegura: {res = (t[0] + t[1]) /2}
+}

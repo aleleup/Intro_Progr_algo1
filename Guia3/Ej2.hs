@@ -114,25 +114,23 @@ esMultiploDe x y | (y /= 0) &&  (mod x y) == 0 = True
 
 -- i) digitoUnidades: dado un n´umero entero, extrae su d´ıgito de las unidades.
 
--- digitoUnidades :: Integer -> Integer -> Integer
+digitoUnidades :: Integer -> Integer -> Integer
 
-digitoUnidades x counter | absx < 9  = absx
+digitoUnidades x counter | absx <= 9  = absx
                          | absx > 9 && mod (absx - counter) 10 == 0 = counter
                          | otherwise = digitoUnidades x (counter + 1)
 
-                 where absx = absoluto x 
+                 where absx = abs x 
 
 
 -- j)
 
--- digitoDecenas :: Float -> Float -> Float
+digitoDecenas :: Integer -> Integer -> Integer
 -- sacarUnidades :: Integer -> Integer
-sacarUnidades x  = x - digitoUnidades x 0
 
-
-digitoDecenas x counter | absx < 9 = 0
-                        | absx < 99 =  absx  / 10
-                        | absx > 99 && mod (absx - counter) 100 == 0 = counter
+digitoDecenas x counter | absx <= 9 = 0
+                        | absx < 99 =  div absx 10
+                        | absx > 99 && mod (absx - counter) 100 == 0 = div counter 10
                         | otherwise = digitoDecenas x (counter + 10)
 
-                where absx = sacarUnidades (absoluto x)  
+                where absx = abs x - digitoUnidades x 0  
