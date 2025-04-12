@@ -1,0 +1,5 @@
+problema esDivisible (a: Z, b: Z) : Bool {
+    requiere : {b != 0}
+    asegura : {res = true <--> a = b*k con k en Z}
+    asegura : {res = false en cualquier otro caso}
+}
