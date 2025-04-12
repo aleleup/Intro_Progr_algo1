@@ -1,0 +1,11 @@
+3) problema esDivisible (a: Z, b: Z) : Bool {
+    requiere : {b != 0}
+    asegura : {res = true <--> a = b*k con k en Z}
+    asegura : {res = false en cualquier otro caso}
+}
+
+
+4) problema sumaImpares (x: Z) : Z {
+    requiere: {x >= 1}
+    asegura: {res = sumatoria de 1 a x de todos los impares de 1 a x}
+}
