@@ -9,3 +9,11 @@
     requiere: {x >= 1}
     asegura: {res = sumatoria de 1 a x de todos los impares de 1 a x}
 }
+
+
+
+
+8) problema sumaDigitos (x: Z) : Z {
+    requiere: {True}
+    asegura : {res = y; donde y es la suma de los digitos de x}
+}
