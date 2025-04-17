@@ -17,3 +17,57 @@
     requiere: {True}
     asegura : {res = y; donde y es la suma de los digitos de x}
 }
+
+
+10)
+    a) problema f1 (n: Z) : Z{
+        requiere: {n >= 0}
+        asegura: {res = sum(2 ^ i) para todo 0 <= i <= n}
+    }
+
+    b) problema f2 (n: Z, q: R): R {
+        requiere: {n >= 0}
+        asegura: {res = sum (q^i) para todo 1 <= i <= n}
+    }
+
+
+    c) problema f3 (n: Z, q: R): R {
+        requiere: {n >= 0 }
+        asegura: {res = sum (q^i) para todo 1 <= i <= 2n}
+    }
+
+    d) problema f3 (n: Z, q: R): R {
+        requiere: {n >= 0 }
+        asegura: {res = sum (q^i) para todo n <= i <= 2n}
+    }
+
+
+
+
+    11) 
+    a) problema eAprox (n: Z): R {
+        requiere: {n >= 0 }
+        asegura : {res = sum(1/factorial(i)) para todo 0 <= i <= n}
+        asegura : {res debe aproximarse al numero e}
+    }
+
+    problema factorial (n: Z): Z{
+        requiere: {n >= 0 }
+        asegura : {res = n!}
+    }
+
+
+
+12)
+    problema raizDe2Aprox(n: Z) : R {
+        requiere (n >= 2)
+        asegura : {res aprox 2 ^ (1/2) dado por la sucecion an - 1}
+    }
+
+
+
+13) 
+    problema f(n:Z m:Z) : R {
+        requiere: {n >= 1 && m >= 1}
+        asegura : {res = sum(sum (i ^ j)) para todo 1<=j<=m && 1<=i<=n}
+    }
