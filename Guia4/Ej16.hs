@@ -32,7 +32,7 @@ buscaDivisorComun n m k | k == 1 = 0
 
 
 --d) n-esimo primo
-
+-- PREGUNTAR
 -- nEsimoPrimo :: Integer -> Integer
 -- nEsimoPrimo n | n == 1 = 2
 --               | n == 0 
