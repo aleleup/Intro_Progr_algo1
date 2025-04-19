@@ -9,9 +9,9 @@ longitud (_:xs) = 1 + longitud xs
 
 --b) ultimo
 
-ultimo:: [t] -> t
+ultimo:: Eq t => [t] -> t
 -- ultimo [] = 0
-ultimo (x:xs) | longitud (x:xs) == 1 = x
+ultimo (x:xs) | xs == [] = x
               | otherwise = ultimo xs
 
 
@@ -23,12 +23,16 @@ principio (x:xs) | longitud (x:xs) == 2 = [x]
 
 
 
--- reverso :: [t] -> [t]
+reverso :: Eq t => [t] -> [t]
 
-reverso (x:xs) | longitud (x:xs) == 1 = x : []
+reverso (x:xs) | xs == [] = [x]
                | otherwise = ultimo (x:xs) : reverso (sacarUltimo (x:xs))
 
 
 -- sacarUltimo :: Eq a => [a] -> [a]
 sacarUltimo (x:xs) | x == ultimo (x:xs) = []
                    | otherwise = x : sacarUltimo xs
+
+
+
+
