@@ -8,8 +8,4 @@ def e_aprox(n: int) -> float:
     
     
     print(res)
-
-
-
-
 e_aprox(9999)

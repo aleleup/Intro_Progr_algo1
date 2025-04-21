@@ -24,10 +24,10 @@ hayRepetidos (x:xs) = pertenece x xs || hayRepetidos xs
 
 
 quitar  :: Eq t => t -> [t] ->Bool -> [t]
-quitar t (x:xs) logic | xs == [] && x /= t = x : []
+quitar t (x:xs) logicVar | xs == [] && x /= t = x : []
                 | xs == [] && x == t = []
-                | x == t && not logic = quitar t xs True
-                | otherwise = x : quitar t xs logic
+                | x == t && not logicVar = quitar t xs True
+                | otherwise = x : quitar t xs logicVar
 
 quitarTodos :: Eq t => t -> [t] -> [t]
 quitarTodos t (x:xs) | xs == [] && x /= t = x : []
