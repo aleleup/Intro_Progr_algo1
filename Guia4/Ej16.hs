@@ -48,3 +48,15 @@ nEsimoPrimo n | n == 1 = 2
 
 siguientePrimo n | esPrimo (n+1) = n + 1
                  |  otherwise = siguientePrimo (n+1)
+
+
+
+esSumaInicialDePrimos :: Integer -> Bool
+esSumaInicialDePrimos 0 = False
+esSumaInicialDePrimos n = probarSumaDesde n 1
+
+probarSumaDesde :: Integer -> Integer -> Bool
+
+probarSumaDesde sumaRestante i  | sumaRestante == 0 = True
+                                | sumaRestante < 0 = False
+                                | otherwise = probarSumaDesde (sumaRestante - (nEsimoPrimo i)) (i+1)

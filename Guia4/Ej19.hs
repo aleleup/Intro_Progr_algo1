@@ -1,13 +1,16 @@
 esSumaInicialDePrimos :: Integer -> Bool
+esSumaInicialDePrimos 0 = False
+esSumaInicialDePrimos nEsimoPrimo = probarSumaDesde n 1
 
--- nEsimoPrimo :: Integer -> Integer
--- nEsimoPrimo n | n == 1 = 2
---               | n == 0 
+probarSumaDesde sumaRestante i  | sumaRestante == False = True
+                                | sumaRestante < 0 = False
+                                |otherwise = probarSumaDesde (sumaRestante - (nEsimoPrimo i)) (i+1)
 
 
+nEsimoPrimo n | n == 1 = 2
+              | otherwise = siguientePrimo (nEsimoPrimo(n-1))
 
--- esSumaInicialDePrimos n a | n < 2 = False
---                           | sumaPrimos < n = False
---                           | sumaPrimos == n = True
---                           | otherwise = esSumaInicialDePrimos n (a+1)
---                 where sumaDePrimos = nEsimoPrimo a + nEsimoPrimo (a+1) 
+
+siguientePrimo n | esPrimo (n+1) = n + 1
+                 |  otherwise = siguientePrimo (n+1)
+
