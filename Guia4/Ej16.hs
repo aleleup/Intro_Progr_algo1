@@ -13,9 +13,8 @@ buscaMenorDivisor n m |( mod n m == 0 )&&( m /= 1) = m
 -- b)
 
 esPrimo :: Integer -> Bool
-
+esPrimo 1 = False
 esPrimo n = menorDivisor n == n 
-
 
 -- c)
 sonCoprimos :: Integer -> Integer -> Integer
@@ -29,10 +28,23 @@ buscaDivisorComun n m k | k == 1 = 0
                         | mod n k == 0 && mod m k == 0 = k
                         | otherwise = buscaDivisorComun n m (k - 1) 
 
-
-
 --d) n-esimo primo
 -- PREGUNTAR
 -- nEsimoPrimo :: Integer -> Integer
+
+
+-- nEsimoPrimo :: Integer -> Integer
 -- nEsimoPrimo n | n == 1 = 2
---               | n == 0 
+--               | otherwise = contarPrimos 0 n 2
+
+-- contarPrimos :: Integer -> Integer -> Integer
+
+-- contarPrimos desde hasta acc | desde == hasta = acc 
+--                              | acc /= hasta = contarPrimos 
+
+nEsimoPrimo n | n == 1 = 2
+              | otherwise = siguientePrimo (nEsimoPrimo(n-1))
+
+
+siguientePrimo n | esPrimo (n+1) = n + 1
+                 |  otherwise = siguientePrimo (n+1)
