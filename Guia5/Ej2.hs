@@ -24,10 +24,16 @@ hayRepetidos (x:xs) = pertenece x xs || hayRepetidos xs
 
 
 quitar  :: Eq t => t -> [t] ->Bool -> [t]
-quitar t (x:xs) logicVar | xs == [] && x /= t = x : []
+quitar t (x:xs) logic | xs == [] && x /= t = x : []
                 | xs == [] && x == t = []
-                | x == t && not logicVar = quitar t xs True
-                | otherwise = x : quitar t xs logicVar
+                | x == t && not logic = quitar t xs True
+                | otherwise = x : quitar t xs logic
+
+
+quitarClase :: Eq t => t -> [t] -> [t]
+quitarClase t lista | lista == [] = []
+               | t == head lista = tail lista
+               | otherwise = head lista : quitarClase t (tail lista)
 
 quitarTodos :: Eq t => t -> [t] -> [t]
 quitarTodos t (x:xs) | xs == [] && x /= t = x : []
@@ -52,10 +58,10 @@ mismosElementos (x:xs) (y:ys) | xs == [] = pertenece x (y:ys)
 
 
 --Ej 2.9
-capicua :: Eq t => [t] -> Bool
+-- capicua :: Eq t => [t] -> Bool
 
-capicua [] = True
-capicua (x:xs)  | xs == [] = x == y
-                | otherwise = x == y && capicua (sacarUltimo xs)
-            where (y:ys) = reverse (x:xs)
+-- capicua [] = True
+-- capicua (x:xs)  | xs == [] = x == y
+--                 | otherwise = x == y && capicua (sacarUltimo xs)
+--             where (y:ys) = reverse (x:xs)
 
