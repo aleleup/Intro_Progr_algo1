@@ -3,7 +3,7 @@
 sumaAcumulada (x:xs) = acumularSuma (x:xs) 0
 
 acumularSuma ::   [Int] -> Int -> [Int]
-acumularSuma (x:xs) acc | xs == [] = (x+acc) : []
+acumularSuma (x:xs) acc | xs == [] = [x+acc]
                         | otherwise = (x+acc) : acumularSuma xs (x + acc)
 
 
@@ -28,7 +28,7 @@ siguientePrimo n | esPrimo (n+1) = n + 1
                  |  otherwise = siguientePrimo (n+1)
 
 
-descomponerEnPrimos :: [Integer] -> [Integer]
+descomponerEnPrimos :: [Integer] -> [[Integer]]
 descomponerEnPrimos (x : xs) | xs == [] = descomposicionDe (x) : []
                              | otherwise =( descomposicionDe x) : (descomponerEnPrimos xs)
 

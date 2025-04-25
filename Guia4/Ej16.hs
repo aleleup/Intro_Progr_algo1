@@ -11,7 +11,6 @@ buscaMenorDivisor n m |( mod n m == 0 )&&( m /= 1) = m
 
 
 -- b)
-
 esPrimo :: Integer -> Bool
 esPrimo 1 = False
 esPrimo n = menorDivisor n == n 
