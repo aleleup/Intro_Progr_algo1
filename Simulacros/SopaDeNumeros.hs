@@ -4,7 +4,7 @@ type Posicion = (Int, Int)
 type Camino = [Posicion]
 type Apariciones = (Int, Int) --(Valor, Apariciones)
 type TablaIndexada = [(Int, Fila)] --Ej7
---1)
+--5)
 maximo :: Tablero -> Int
 maximo tablero = maximoAux tablero 0
 
@@ -22,7 +22,7 @@ maxPosicionFila (x:xs) acc  | x >= acc = maxPosicionFila xs x
 
 
 
---2)
+--6)
 
 masRepetido :: Tablero -> Int
 masRepetido tablero = masRepetidoAux tablero tablero (0,0)
@@ -52,7 +52,7 @@ calcularAparicionesPorFila (x:xs) valor apariciones | x == valor = 1 + calcularA
 
 
 
---3)
+--7)
 
 
 valoresDeCamino :: Tablero -> Camino -> [Int]
@@ -72,7 +72,7 @@ transformListaDeListaATuplaDeLista (l:ls) acc   | ls == [] = [(acc, l)]
                                                 | otherwise = (acc, l) : transformListaDeListaATuplaDeLista ls (acc+1)
 
 
---4) 
+--8) 
 
 esCaminoFibo :: [Int] ->Int ->Bool
 esCaminoFibo camino i = esCaminoFiboAux camino camino i  
