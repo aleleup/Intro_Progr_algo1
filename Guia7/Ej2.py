@@ -69,14 +69,56 @@ def sacar_repetidos(string:str) -> str:
     
     print(new_list)
     return ''.join(new_list)
-ceros_en_pos_pares([0,1,2,3,4,5,6,7,8,9])
-ceros_en_pos_pares2([0,1,2,3,4,5,6,7,8,9])
-problema_sin_vocales(['a', 'b', 'c'])
-reemplaza_vocales(['u', 'b', 'c'])
-dar_vuelta_str(['u', 'r', 'r','a','t','a'])
-sacar_repetidos('urrata')
+
+
+# 3)
+
+def resultados_materias(notas:list[float]) -> int:
+    res:int = 0
+    son_notas_mayor_a_4:bool = True
+    promedio:float = 0
+    acc:float = 0
+    for nota in notas:
+        if nota < 4:
+            son_notas_mayor_a_4 = False
+        acc+=nota
+    
+    promedio = acc/len(notas)
+
+    if son_notas_mayor_a_4 and promedio >=7:
+        res = 1
+    elif son_notas_mayor_a_4 and promedio < 7 and promedio >= 4:
+        res = 2
+    else:
+        res = 3
+
+    print(res)
+    return res
+
+
+def saldo_actual(movimientos:list[tuple]) -> int:
+    acc_for_sum:list[float] = []
+    acc:float = 0
+    for movimiento in movimientos:
+        if movimiento[0] == 'R':
+            acc_for_sum.append(-1*movimiento[1])
+        else: 
+            acc_for_sum.append(movimiento[1])
+
+    for num in acc_for_sum:
+        acc+=num
+
+    print(acc)
+    return acc
 
 
 
 
-
+# ceros_en_pos_pares([0,1,2,3,4,5,6,7,8,9])
+# ceros_en_pos_pares2([0,1,2,3,4,5,6,7,8,9])
+# problema_sin_vocales(['a', 'b', 'c'])
+# reemplaza_vocales(['u', 'b', 'c'])
+# dar_vuelta_str(['u', 'r', 'r','a','t','a'])
+# sacar_repetidos('urrata')
+# resultados_materias([7,8])
+saldo_actual([("I", 2000), ("R", 11), ("I", 500)])
